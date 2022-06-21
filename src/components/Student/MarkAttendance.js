@@ -1,0 +1,93 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+const MarkAttendance = () => {
+  let history = useHistory();
+  const [user, setUser] = useState({
+    attendanceId:"",
+    id: "",
+    date: "",
+    status: "",
+    employees:null
+  });
+  const data = {
+    attendanceId:user.attendanceId,
+    employeeId: user.id,
+    attendanceDate: user.date,
+    attendanceStatus: user.status,
+    employees:user.employees,
+  };
+  console.log(data);
+  const onInputChange = (e) => {
+  setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const count = await axios({method: 'get',url: 'https://localhost:44381/api/Attendances/GetAttendances'});
+    user.attendanceId ='A'.concat(count.data.length.toString());
+    console.log(count.data.length.toString());
+    data.attendanceId='A'.concat(count.data.length.toString());
+    axios({method: 'post',url: 'https://localhost:44381/api/Attendances/CreateAttendance',data: data})
+    .then(res=>console.log(res));
+    alert("Attendance Marked");
+    history.push("/Home");
+  };
+  return (
+    <div>
+      <center>
+        <h1>Mark Attendance</h1>
+      </center>
+      <html>
+        <div className="form">
+          <form onSubmit={(e) => onSubmit(e)}>
+            <label>Employee Id</label>
+            <input
+              type="text"
+              name="id"
+              value={user.id}
+              className="form-control"
+              placeholder=" Enter Employee Id"
+              required
+              onChange={(e) => onInputChange(e)}
+            />
+            <label>Date</label>
+            <input
+              type="date"
+              name="date"
+              value={user.date}
+              className="form-control"
+              placeholder="dd/mm/yyyy"
+              onChange={(e) => onInputChange(e)}
+            />
+            <label>Attendance Status :</label>
+            <br />
+            <input
+              type="radio"
+              name="status"
+              value="Present"
+              data-cke-saved-name="status"
+              onChange={(e) => onInputChange(e)}
+            />
+            Present
+            <input
+              type="radio"
+              name="status"
+              value="Absent"
+              data-cke-saved-name="status"
+              onChange={(e) => onInputChange(e)}
+            />
+            Absent
+            <br />
+            <center>
+              <button type="submit" className="btn btn-success">
+                Submit
+              </button>
+            </center>
+          </form>
+        </div>
+      </html>
+    </div>
+  );
+};
+export default MarkAttendance;
