@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useHistory} from "react-router-dom";
 import axios from "axios";
 
-function UpdateEmployee() {
+function UpdateStudent() {
   let history = useHistory();
   const [user, setUser] = useState({
     id: "",
@@ -15,28 +15,28 @@ function UpdateEmployee() {
   useEffect(() => {
     //GetData();
   });
-  const UpdateEmployee = (e) => {
+  const UpdateStudent = (e) => {
     e.preventDefault();
     const data = {
-      employeeId: user.id,
-      employeeName: user.name,
-      employeeEmail: user.email,
-      employeeContact: user.tel,
-      employeeUsername: user.username,
-      employeePassword: user.password,
-      employeeType: "Employee",
+      studentId: user.id,
+      studentName: user.name,
+      studentEmail: user.email,
+      studentContact: user.tel,
+      studentUsername: user.username,
+      studentPassword: user.password,
+      studentType: "Student",
     };
     
     axios.put(
-      "https://localhost:44381/api/Employees/UpdateEmployee",
+      "https://localhost:44381/api/Students/UpdateStudent",
       data
     ).then((result) => {
      console.log(result);
      
-     history.push("/Admin/EmployeeDetails");
+     history.push("/Admin/StudentDetails");
       
-      if (result.data == "failed") alert("Employee Not Preset");
-      else alert("Employee Updated successfully ");
+      if (result.data == "failed") alert("Student Not Preset");
+      else alert("Student Updated successfully ");
     });
   };
   const onChange = (e) => {
@@ -52,17 +52,17 @@ function UpdateEmployee() {
       </center>
       <div className="form">
         <form>
-          <label>Employee Id</label>
+          <label>Student Id</label>
           <input
             type="text"
             name="id"
             value={user.id}
             className="form-control"
-            placeholder=" Enter Employee Id"
+            placeholder=" Enter Student Id"
             required
             onChange={onChange}
           />
-          <label>Employee Name</label>
+          <label>Student Name</label>
           <input
             type="text"
             name="name"
@@ -72,7 +72,7 @@ function UpdateEmployee() {
             required
             onChange={onChange}
           />
-          <label>Employee Email</label>
+          <label>Student Email</label>
           <input
             type="email"
             name="email"
@@ -82,7 +82,7 @@ function UpdateEmployee() {
             required
             onChange={onChange}
           />
-          <label>Employee PhoneNumber</label>
+          <label>Student PhoneNumber</label>
           <input
             type="tel"
             name="tel"
@@ -93,7 +93,7 @@ function UpdateEmployee() {
             required
           />
           <br />
-          <label>Employee Username</label>
+          <label>Student Username</label>
           <input
             type="text"
             className="form-control"
@@ -105,11 +105,11 @@ function UpdateEmployee() {
           />
           <br />
           <div class="inputbox">
-            <input type="submit" value="Update" onClick={UpdateEmployee} />
+            <input type="submit" value="Update" onClick={UpdateStudent} />
           </div>
         </form>
       </div>
     </div>
   );
 }
-export default UpdateEmployee;
+export default UpdateStudent;

@@ -18,7 +18,7 @@ function StudentDetails(props) {
    StudentService.deleteStudent(id)
       .then((resData) => {
         alert("Deleted Successfully");
-        history.push("/AddEmployee");
+        history.push("/AddStudent");
         this.setState({ result: resData.data.result });
         const GetData = async () => {
           StudentService.getAllStudent().then((result) => {
@@ -74,7 +74,7 @@ function StudentDetails(props) {
                       &nbsp;
                       <button
                         className="btn btn-danger"
-                        onClick={() => (deleteEmployee(item.studentId))}
+                        onClick={() => (deleteStudent(item.studentId))}
                       >
                       Delete
                       </button>

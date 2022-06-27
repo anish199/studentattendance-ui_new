@@ -23,7 +23,7 @@ const ApplyLeave = () => {
       leaveStartDate: user.startdate,
       leaveEndDate: user.enddate,
       leaveReason: user.leavereason,
-      employeeId:user.id,
+      studentId:user.id,
     };
     console.log(data);
     LeaveService.createLeave(data).then((result) => {
@@ -37,13 +37,13 @@ const ApplyLeave = () => {
       <h5 style={{ color: "black" }}>Apply Leave</h5>
       <div className="form">
         <form onSubmit={(e) => onSubmit(e)}>
-          <label>Employee Id</label>
+          <label>Student Id</label>
           <input
             type="text"
             name="id"
             value={user.id}
             className="form-control"
-            placeholder=" Enter Employee Id"
+            placeholder=" Enter Student Id"
             required
             onChange={(e) => onInputChange(e)}
           />

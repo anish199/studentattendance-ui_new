@@ -1,7 +1,7 @@
 import {Table} from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import LeaveService from "../DBServices/LeaveService";
-function ViewEmployeeLeave() {
+function ViewStudentLeave() {
 const [data, getData] = useState([]);
     useEffect(() => {
       const GetData = () => {
@@ -23,7 +23,7 @@ const [data, getData] = useState([]);
             <th>Leave Apply Date</th>
             <th>Leave Start Date</th>
             <th>Leave End Date</th>
-            <th>Employee Id</th>
+            <th>Student Id</th>
           </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@ const [data, getData] = useState([]);
                     <td>{item.leaveApplyDate}</td>
                     <td>{item.leaveStartDate}</td>
                     <td>{item.leaveEndDate}</td>
-                    <td>{item.employeeId}</td>
+                    <td>{item.student}</td>
                   </tr>
                 );
               })}
@@ -44,4 +44,4 @@ const [data, getData] = useState([]);
     </div>
   );
 }
-export default ViewEmployeeLeave;
+export default ViewStudentLeave;

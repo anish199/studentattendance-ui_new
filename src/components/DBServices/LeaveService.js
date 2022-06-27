@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = "https://localhost:44381/api/Leaves/";
+const baseUrl = "https://localhost:44381/api/Leaves/api/Leaves/GetLeaves";
 
 export const LeaveService = {
     getAllLeaves,     

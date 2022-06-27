@@ -8,14 +8,14 @@ const MarkAttendance = () => {
     id: "",
     date: "",
     status: "",
-    employees:null
+    student:null
   });
   const data = {
     attendanceId:user.attendanceId,
-    employeeId: user.id,
+    studentId: user.id,
     attendanceDate: user.date,
     attendanceStatus: user.status,
-    employees:user.employees,
+    students:user.students,
   };
   console.log(data);
   const onInputChange = (e) => {
@@ -41,13 +41,13 @@ const MarkAttendance = () => {
       <html>
         <div className="form">
           <form onSubmit={(e) => onSubmit(e)}>
-            <label>Employee Id</label>
+            <label>Student Id</label>
             <input
               type="text"
               name="id"
               value={user.id}
               className="form-control"
-              placeholder=" Enter Employee Id"
+              placeholder=" Enter Student Id"
               required
               onChange={(e) => onInputChange(e)}
             />

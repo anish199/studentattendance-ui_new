@@ -22,7 +22,7 @@ const AddStudent = () => {
     studentContact: user.tel,
     studentUsername: user.username,
     studentPassword: user.password,
-    studentType: "Admin",
+    studentType: "Student",
   };
   console.log(data);
   const onInputChange = (e) => {
@@ -31,8 +31,8 @@ const AddStudent = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(data)
-    await axios
-      .post("https://localhost:44381/api/Student/CreateStudent", data)
+    await 
+      axios.post("https://localhost:44381/api/Students/CreateStudent", data)
       .then((response) =>{
         alert("Registered!!");
         history.push("/StudentDetails");

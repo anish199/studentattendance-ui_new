@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseUrl = "https://localhost:44381/api/Student/";
 
-export const EmployeeServices = {
+export const StudentServices = {
     getAllStudents,     
     getStudentById,    
     createStudent,
@@ -12,7 +12,7 @@ export const EmployeeServices = {
 
 
 function getAllStudents(){  
-    return axios.get(baseUrl +"GetStudents/");
+    return axios.get("https://localhost:44381/api/Students/GetStudents");
     
 }
 
@@ -21,7 +21,7 @@ function getStudentById(id){
 }
 
 function createStudent(StudentObj){
-    return axios.post(baseUrl +"CreateStudent/", StudentObj);
+    return axios.post("https://localhost:44381/api/Students/CreateStudent");
 }
 
 
@@ -31,7 +31,7 @@ function updateStudent(StudentObj){
 }
 
 function deleteStudent(id){
-    return axios.delete(baseUrl +"DeleteStudent/"+ id);
+    return axios.delete("https://localhost:44381/api/Students/DeleteStudent/id");
 }
 
-export default EmployeeServices;
+export default StudentServices;
