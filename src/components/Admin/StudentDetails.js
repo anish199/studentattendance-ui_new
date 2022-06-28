@@ -18,10 +18,10 @@ function StudentDetails(props) {
    StudentService.deleteStudent(id)
       .then((resData) => {
         alert("Deleted Successfully");
-        history.push("/AddStudent");
+        history.push("/Admin/StudentDetails");
         this.setState({ result: resData.data.result });
         const GetData = async () => {
-          StudentService.getAllStudent().then((result) => {
+          StudentService.getAllStudents().then((result) => {
            getData(result.data);
             
             });

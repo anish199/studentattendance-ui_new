@@ -14,15 +14,15 @@ import Logo from "../../Images/logo.jpg";
   if (user == "admin"){
   return (
     <header>
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="tabs">
     <Navbar.Brand href="/">Admin</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto flex-grow-1 justify-content-evenly">
           <Nav.Link className="d-inline p-2 bg-dark text-white" to="/Home">Home</Nav.Link>
-          <NavLink className="d-inline p-2 bg-dark text-white" to="/Admin/AddStudent" style={{ textDecoration: 'none' }} >Add Student</NavLink>
-         <NavLink className="d-inline p-2 bg-dark text-white"to="/Admin/ViewStudentAttendance" style={{ textDecoration: 'none' }}>View Student Attendance</NavLink>
-          <NavLink className="d-inline p-2 bg-dark text-white" to="/Admin/ViewStudentLeave" style={{ textDecoration: 'none' }}>View Student Leave</NavLink>
+          <NavLink className="d-inline p-2 bg-dark text-white" to="/Admin/AddStudent"  >Add Student</NavLink>
+         <NavLink className="d-inline p-2 bg-dark text-white"to="/Admin/ViewStudentAttendance" >View Student Attendance</NavLink>
+          <NavLink className="d-inline p-2 bg-dark text-white" to="/Admin/ViewStudentLeave" >View Student Leave</NavLink>
           </Nav>
           <Nav className="ms-auto">
               <Nav.Link onClick={logout}>LogOut</Nav.Link>

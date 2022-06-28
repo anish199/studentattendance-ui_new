@@ -35,7 +35,7 @@ const AddStudent = () => {
       axios.post("https://localhost:44381/api/Students/CreateStudent", data)
       .then((response) =>{
         alert("Registered!!");
-        history.push("/StudentDetails");
+        history.push("/Admin/StudentDetails");
        console.log(response.data)
       })
       .catch(error => {
