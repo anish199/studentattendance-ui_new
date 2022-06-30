@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory, Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 const AddStudent = () => {
   let history = useHistory();
@@ -34,13 +35,13 @@ const AddStudent = () => {
     await 
       axios.post("https://localhost:44381/api/Students/CreateStudent", data)
       .then((response) =>{
-        alert("Registered!!");
+        swal("Registered","Student Registered","success");
         history.push("/Admin/StudentDetails");
        console.log(response.data)
       })
       .catch(error => {
         console.log(error)
-      alert("Registration Failed due to Invalid data!!");
+      swal("Registration Failed","Invalid data","error");
      });
   
   };

@@ -45,6 +45,11 @@ function App() {
           path="/Admin/ViewStudentAttendance"
           component={ViewStudentAttendance}
         ></Route>
+        <Route
+          exact
+          path="/Admin/ViewStudentLeave"
+          component={ViewStudentLeave}
+        ></Route>
         <Route exact path="/ApplyLeave" component={ApplyLeave}></Route>
         <Route exact path="/MarkAttendance" component={MarkAttendance}></Route>
         <Route exact path="/Home" component={Home}></Route>

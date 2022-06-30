@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import swal from 'sweetalert';
 const MarkAttendance = () => {
   let history = useHistory();
   const [user, setUser] = useState({
@@ -30,7 +31,7 @@ const MarkAttendance = () => {
     data.attendanceId='A'.concat(count.data.length.toString());
     axios({method: 'post',url: 'https://localhost:44381/api/Attendances/CreateAttendance',data: data})
     .then(res=>console.log(res));
-    alert("Attendance Marked");
+    swal("Good Job","Attendance Marked","success");
     history.push("/Home");
   };
   return (

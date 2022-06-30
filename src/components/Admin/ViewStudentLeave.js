@@ -4,14 +4,17 @@ import LeaveService from "../DBServices/LeaveService";
 function ViewStudentLeave() {
 const [data, getData] = useState([]);
     useEffect(() => {
+      GetData();
+    }, []);
       const GetData = () => {
         LeaveService.getAllLeaves().then((result) => {
           getData(result.data);
           console.log(result.data);
         });
       };
-      GetData();
-    }, []);
+      
+
+
   return (
     <div>
       <center>

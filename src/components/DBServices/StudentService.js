@@ -31,7 +31,7 @@ function updateStudent(StudentObj){
 }
 
 function deleteStudent(id){
-    return axios.delete("https://localhost:44381/api/Students/DeleteStudent/id");
+    return axios.delete("https://localhost:44381/api/Students/DeleteStudent/" + id);
 }
 
 export default StudentServices;

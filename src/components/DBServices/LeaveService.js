@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-const baseUrl = "https://localhost:44381/api/Leaves/api/Leaves/GetLeaves";
-
+const baseUrl = "https://localhost:44381/api/Leaves/";
 export const LeaveService = {
     getAllLeaves,     
     getLeaveById,    
@@ -10,9 +8,9 @@ export const LeaveService = {
     deleteLeave
 };
 
-
-function getAllLeaves(){  
-    return axios.get(baseUrl +"GetLeaves/");
+function getAllLeaves(){
+    alert("hi!");  
+    return axios.get(baseUrl+"GetLeaves");
     
 }
 

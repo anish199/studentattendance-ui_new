@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory , withRouter , BrowserRouter} from "react-router-dom";
 import { Table } from "react-bootstrap";
 import StudentService from "../DBServices/StudentService";
+import swal from 'sweetalert';
 function StudentDetails(props) {
   let history = useHistory();
   const [data, getData] = useState([]);
@@ -17,9 +18,10 @@ function StudentDetails(props) {
    const deleteStudent = (id) => {
    StudentService.deleteStudent(id)
       .then((resData) => {
-        alert("Deleted Successfully");
-        history.push("/Admin/StudentDetails");
-        this.setState({ result: resData.data.result });
+        //swal("Warning","Are you sure you want to do this?","warning" ,{buttons: ["Yes","No"]});
+         alert("Deleted Successfully");
+        // history.push("/Admin/StudentDetails");
+        this.setState({ data: resData.data.result });
         const GetData = async () => {
           StudentService.getAllStudents().then((result) => {
            getData(result.data);
@@ -27,6 +29,11 @@ function StudentDetails(props) {
             });
           };
         GetData();
+        // alert("Deleted Successfully");
+        // history.push("/Admin/StudentDetails");
+        props.history.push({
+          pathname: '/Admin/StudenDetails'
+      });
      });
   };
   const UpdateStudent = (id) => {
@@ -36,6 +43,7 @@ function StudentDetails(props) {
   };
   return (
     <div>
+      <BrowserRouter forceRefresh={true}></BrowserRouter>
       <center>
         <h1>Student Details </h1>
       </center>
@@ -86,7 +94,8 @@ function StudentDetails(props) {
         </tbody>
       </Table>
     </div>
+    
   );
 }
 
-export default StudentDetails;
+export default withRouter (StudentDetails);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
-import { useHistory} from "react-router-dom";
+import { useHistory, withRouter} from "react-router-dom";
 import axios from "axios";
+import swal from "sweetalert";
 
 function UpdateStudent() {
   let history = useHistory();
@@ -28,15 +29,14 @@ function UpdateStudent() {
     };
     
     axios.put(
-      "https://localhost:44381/api/Students/UpdateStudent",
-      data
-    ).then((result) => {
+      "https://localhost:44381/api/Students/UpdateStudent",user)
+      .then((result) => {
      console.log(result);
      
      history.push("/Admin/StudentDetails");
       
-      if (result.data == "failed") alert("Student Not Preset");
-      else alert("Student Updated successfully ");
+      if (result.user == "failed") swal("Error","Student Not Present","error");
+      else swal("Done","Student Updated successfully","success");
     });
   };
   const onChange = (e) => {
@@ -112,4 +112,4 @@ function UpdateStudent() {
     </div>
   );
 }
-export default UpdateStudent;
+export default withRouter(UpdateStudent);

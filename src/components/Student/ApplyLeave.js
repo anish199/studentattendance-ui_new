@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import LeaveService from "../DBServices/LeaveService";
+import swal from 'sweetalert';
 
 const ApplyLeave = () => {
   let history = useHistory();
@@ -15,8 +17,8 @@ const ApplyLeave = () => {
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
     const data = {
       
       leaveApplyDate: user.leavedate,
@@ -25,12 +27,24 @@ const ApplyLeave = () => {
       leaveReason: user.leavereason,
       studentId:user.id,
     };
-    console.log(data);
-    LeaveService.createLeave(data).then((result) => {
-    alert("Leave Applied")
+  //   console.log(data);
+  //   LeaveService.createLeave(data).then((result) => {
+  //   alert("Leave Applied")
+  //   history.push("/Home");
+  // });
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const count = await axios({method: 'get',url: 'https://localhost:44381/api/Leaves/api/Leaves/GetLeaves'});
+    user.LeaveId ='L'.concat(count.data.length.toString());
+    console.log(count.data.length.toString());
+    data.LeaveId='L'.concat(count.data.length.toString());
+    axios({method: 'post',url: 'https://localhost:44381/api/Leaves/api/Leaves/CreateLeave',data: data})
+    .then(res=>console.log(res));
+    swal("Good Job","Leave Marked","success");
     history.push("/Home");
-  });
-};
+  };
+
+
 
   return (
     <html>

@@ -1,8 +1,9 @@
 import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {Form } from "react-bootstrap";
+import {Form, Alert} from "react-bootstrap";
 import LoginImg from "../../Images/login.png"
+import swal from 'sweetalert';
 
 function Login()
 {
@@ -48,10 +49,10 @@ function Login()
       // console.log("printing res msg",result.responseMsg);
       if(result.token === null)
       {
-         alert("Invalid Credentials");
+         swal("Invalid Credentials","Login Failed","error");
       }
       else{
-      alert("Login Success")
+      swal("Login Success","User Authorised", "success");
       sessionStorage.setItem("auth-token",JSON.stringify(result))
       sessionStorage.setItem("user-info", studentType)
       window.location.reload(true);
@@ -133,6 +134,7 @@ function Login()
             <div href="#" style={{textDecoration:"none", color:"red"}}>Forgot password?</div>
           </Link>
         </p>
+        
       </form>
     </div>
   );
