@@ -9,7 +9,7 @@ export const LeaveService = {
 };
 
 function getAllLeaves(){
-    alert("hi!");  
+    //alert("hi!");  
     return axios.get(baseUrl+"GetLeaves");
     
 }

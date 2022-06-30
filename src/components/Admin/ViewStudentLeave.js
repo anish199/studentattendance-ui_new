@@ -38,7 +38,7 @@ const [data, getData] = useState([]);
                     <td>{item.leaveApplyDate}</td>
                     <td>{item.leaveStartDate}</td>
                     <td>{item.leaveEndDate}</td>
-                    <td>{item.student}</td>
+                    <td>{item.studentId}</td>
                   </tr>
                 );
               })}

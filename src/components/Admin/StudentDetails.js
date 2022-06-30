@@ -18,8 +18,8 @@ function StudentDetails(props) {
    const deleteStudent = (id) => {
    StudentService.deleteStudent(id)
       .then((resData) => {
-        //swal("Warning","Are you sure you want to do this?","warning" ,{buttons: ["Yes","No"]});
-         alert("Deleted Successfully");
+        swal("Warning","Are you sure you want to do this?","warning" ,{buttons: ["Yes","No"]});
+         swal("Deleted","Student deleted successfully","success");
         // history.push("/Admin/StudentDetails");
         this.setState({ data: resData.data.result });
         const GetData = async () => {
