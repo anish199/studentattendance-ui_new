@@ -33,7 +33,7 @@ function Login()
      if(!username){
        alert("hi")
      }
-     let result = await fetch("https://localhost:44381/api/Accounts/Login", {
+     let result = await fetch("http://20.124.158.6/api/Accounts/Login", {
        method: 'POST',
        headers:{
         'Accept': 'application/json',

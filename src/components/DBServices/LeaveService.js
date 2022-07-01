@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = "https://localhost:44381/api/Leaves/";
+const baseUrl = "http://20.124.158.6/api/Leaves/";
 export const LeaveService = {
     getAllLeaves,     
     getLeaveById,    

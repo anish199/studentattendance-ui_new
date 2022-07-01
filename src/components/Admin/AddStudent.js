@@ -33,7 +33,7 @@ const AddStudent = () => {
     e.preventDefault();
     console.log(data)
     await 
-      axios.post("https://localhost:44381/api/Students/CreateStudent", data)
+      axios.post("http://20.124.158.6/api/Students/CreateStudent", data)
       .then((response) =>{
         swal("Registered","Student Registered","success");
         history.push("/Admin/StudentDetails");

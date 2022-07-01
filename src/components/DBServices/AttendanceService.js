@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = "https://localhost:44381/api/Attendances/";
+const baseUrl = "http://20.124.158.6/api/Attendances/";
 export const AttendanceService = {
     getAllAttendances,     
     getAttendanceById,    

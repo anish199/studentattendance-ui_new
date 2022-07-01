@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = "https://localhost:44381/api/Student/";
+const baseUrl = "http://20.124.158.6/api/Student/";
 
 export const StudentServices = {
     getAllStudents,     
@@ -12,7 +12,7 @@ export const StudentServices = {
 
 
 function getAllStudents(){  
-    return axios.get("https://localhost:44381/api/Students/GetStudents");
+    return axios.get("http://20.124.158.6/api/Students/GetStudents");
     
 }
 
@@ -21,7 +21,7 @@ function getStudentById(id){
 }
 
 function createStudent(StudentObj){
-    return axios.post("https://localhost:44381/api/Students/CreateStudent");
+    return axios.post("http://20.124.158.6/api/Students/CreateStudent");
 }
 
 
@@ -31,7 +31,7 @@ function updateStudent(StudentObj){
 }
 
 function deleteStudent(id){
-    return axios.delete("https://localhost:44381/api/Students/DeleteStudent/" + id);
+    return axios.delete("http://20.124.158.6/api/Students/DeleteStudent/" + id);
 }
 
 export default StudentServices;

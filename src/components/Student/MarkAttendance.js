@@ -25,11 +25,11 @@ const MarkAttendance = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const count = await axios({method: 'get',url: 'https://localhost:44381/api/Attendances/GetAttendances'});
+    const count = await axios({method: 'get',url: 'http://20.124.158.6/api/Attendances/GetAttendances'});
     user.attendanceId ='A'.concat(count.data.length.toString());
     console.log(count.data.length.toString());
     data.attendanceId='A'.concat(count.data.length.toString());
-    axios({method: 'post',url: 'https://localhost:44381/api/Attendances/CreateAttendance',data: data})
+    axios({method: 'post',url: 'http://20.124.158.6/api/Attendances/CreateAttendance',data: data})
     .then(res=>console.log(res));
     swal("Good Job","Attendance Marked","success");
     history.push("/Home");

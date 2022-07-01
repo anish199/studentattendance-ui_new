@@ -29,7 +29,7 @@ function UpdateStudent() {
     };
     
     axios.put(
-      "https://localhost:44381/api/Students/UpdateStudent",user)
+      "http://20.124.158.6/api/Students/UpdateStudent",user)
       .then((result) => {
      console.log(result);
      
