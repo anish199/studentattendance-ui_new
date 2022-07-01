@@ -39,7 +39,7 @@ function Login()
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept',
+        'Access-Control-Allow-Headers':'*',
         'Access-Control-Request-Method':'GET,POST,PUT,UPDATE,DELETE'
       },
         
